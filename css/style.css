@@ -318,9 +318,10 @@ section {
 
     .skill-img img {
         position: relative;
-        width: 32vw;
-        border-radius: 50%;
-        /* object-fit: cover; */
+        width: 25vw;
+        height: 25vw;
+        /* border-radius: 50%; */
+        object-fit: cover;
         box-shadow: 0 0 25px solid var(--maincolor);
         cursor: pointer;
         transition: 0.2s linear;
@@ -618,10 +619,18 @@ section {
     .contact-content h1 {
         font-size: 5rem;
     }
+    .contact p{
+        font-size: 2.5rem;
+    }
 
     .contact-img img {
         width: 70vw;
         margin-top: 4rem;
+    }
+    .contact{
+        h3{
+            font-size: 5rem;
+        }
     }
 
     .education {
@@ -681,5 +690,9 @@ section {
     .grid-container {
         grid-template-columns: 1fr;
         font-size: 1.6rem;
+        
+    }
+    .yt {
+        width: 70vw;
     }
 }
