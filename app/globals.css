@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --c-bg: #050308;
+  --c-card: #0e0818;
+  --c-green: #bf00ff;
+  --c-cyan: #00cfff;
+  --c-pink: #ff2a6d;
+  --c-yellow: #ffd700;
+  --c-text: #e0e0e0;
+  --c-muted: #9988bb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-text);
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* CRT scanline overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.06) 2px,
+    rgba(0, 0, 0, 0.06) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── Pixel utilities ─────────────────────────────── */
+.px-card {
+  background: var(--c-card);
+  border: 3px solid var(--c-green);
+  box-shadow: 4px 4px 0 0 var(--c-green);
+  padding: 1.5rem;
+}
+
+.px-card-cyan {
+  background: var(--c-card);
+  border: 3px solid var(--c-cyan);
+  box-shadow: 4px 4px 0 0 var(--c-cyan);
+  padding: 1.5rem;
+}
+
+.px-card-pink {
+  background: var(--c-card);
+  border: 3px solid var(--c-pink);
+  box-shadow: 4px 4px 0 0 var(--c-pink);
+  padding: 1.5rem;
+}
+
+.px-btn {
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  padding: 12px 20px;
+  background: transparent;
+  border: 3px solid var(--c-green);
+  color: var(--c-green);
+  box-shadow: 3px 3px 0 0 var(--c-green);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.08s;
+  letter-spacing: 1px;
+}
+
+.px-btn:hover {
+  background: var(--c-green);
+  color: var(--c-bg);
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+.px-btn-cyan {
+  border-color: var(--c-cyan);
+  color: var(--c-cyan);
+  box-shadow: 3px 3px 0 0 var(--c-cyan);
+}
+
+.px-btn-cyan:hover {
+  background: var(--c-cyan);
+  color: var(--c-bg);
+  box-shadow: none;
+}
+
+.px-title {
+  font-family: 'Press Start 2P', cursive;
+  color: var(--c-green);
+  text-shadow: 0 0 10px rgba(191, 0, 255, 0.5);
+  letter-spacing: 2px;
+}
+
+.px-label {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 9px;
+  color: var(--c-muted);
+  letter-spacing: 1px;
+}
+
+.px-divider {
+  border: none;
+  border-top: 3px solid var(--c-green);
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 8px rgba(191, 0, 255, 0.3);
+}
+
+.px-tag {
+  display: inline-block;
+  border: 2px solid var(--c-cyan);
+  color: var(--c-cyan);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 8px;
+  padding: 6px 10px;
+  background: rgba(0, 207, 255, 0.08);
+}
+
+.px-tag-green {
+  border-color: var(--c-green);
+  color: var(--c-green);
+  background: rgba(191, 0, 255, 0.08);
+}
+
+.px-tag-pink {
+  border-color: var(--c-pink);
+  color: var(--c-pink);
+  background: rgba(255, 42, 109, 0.08);
+}
+
+/* pixel avatar border */
+.px-avatar {
+  border: 4px solid var(--c-green);
+  box-shadow: 0 0 20px rgba(191, 0, 255, 0.4), 6px 6px 0 0 var(--c-green);
+  image-rendering: pixelated;
+}
+
+/* skill bar */
+.skill-bar-track {
+  height: 14px;
+  background: #111;
+  border: 2px solid #333;
+  flex: 1;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--c-green) 0%, #8800cc 100%);
+  image-rendering: pixelated;
+}
+
+/* progress pip style */
+.pip {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: var(--c-green);
+  margin-right: 3px;
+}
+
+.pip-empty {
+  background: #1e1e1e;
+  border: 2px solid #333;
+}
+
+/* timeline node */
+.tl-node {
+  width: 14px;
+  height: 14px;
+  background: var(--c-yellow);
+  border: 2px solid var(--c-bg);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.tl-line {
+  width: 3px;
+  background: var(--c-yellow);
+  flex-shrink: 0;
+}
+
+/* social icon button */
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--c-muted);
+  color: var(--c-muted);
+  font-size: 20px;
+  transition: all 0.1s;
+  text-decoration: none;
+}
+
+.social-btn:hover {
+  border-color: var(--c-green);
+  color: var(--c-green);
+  box-shadow: 2px 2px 0 0 var(--c-green);
+  transform: translate(-2px, -2px);
+}
+
+/* cursor blink */
+.cursor::after {
+  content: '_';
+  animation: blink 1s step-end infinite;
+  color: var(--c-green);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* dynamic color link (uses --link-color CSS var) */
+.dyn-link {
+  display: inline-block;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 8px;
+  padding: 10px 14px;
+  border: 2px solid var(--link-color, #bf00ff);
+  color: var(--link-color, #bf00ff);
+  text-decoration: none;
+  box-shadow: 3px 3px 0 0 var(--link-color, #bf00ff);
+  transition: all 0.08s;
+  letter-spacing: 1px;
+}
+.dyn-link:hover {
+  background: var(--link-color, #bf00ff);
+  color: #050308;
+  box-shadow: none;
+  transform: translate(3px, 3px);
+}
+
+/* contact email/tel link */
+.contact-val-link {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.1s;
+}
+.contact-val-link:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--c-bg); }
+::-webkit-scrollbar-thumb { background: var(--c-green); }
